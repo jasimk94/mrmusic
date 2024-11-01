@@ -6,7 +6,7 @@ from ..logging import LOGGER
 
 LOGGER(__name__).info("Connecting to your Mongo Database...")
 try:
-    _mongo_async_ = AsyncIOMotorClient(MONGO_DB_URI)
+    _mongo_async_ = AsyncIOMotorClient(MONGO_DB_URI, tls=True, tlsAllowInvalidCertificates=True)
     mongodb = _mongo_async_.Yukki
     LOGGER(__name__).info("Connected to your Mongo Database.")
 except:
